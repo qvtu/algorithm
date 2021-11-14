@@ -14,8 +14,11 @@ public class PTA_1007 {
         Scanner in = new Scanner(new BufferedInputStream(System.in));
         //输入n
         int n = in.nextInt();
+        //存储满足条件的个数
         int count = 0;
+        //使用temp存储上一个素数的值
         int temp = 1;
+        //查找素数
         for (int i = 2; i <= n; i++) {
             int flag = 1;
             if (i != 2 && i % 2 == 0) {
@@ -26,6 +29,7 @@ public class PTA_1007 {
                     }
                 }
                 if (flag == 1) {
+                    //与上一个数比较
                     if (i - temp == 2) {
                         count++;
                     }
