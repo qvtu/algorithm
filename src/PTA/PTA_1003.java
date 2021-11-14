@@ -18,6 +18,10 @@ public class PTA_1003 {
             //输入字符串
             String str = in.next();
             //使用正则表达式判断 xPATx
+            //A* 表示可以A可以不出现 也可以出现n次
+            //P  表示需要出现P
+            //A+ 表示A至少出现一次
+            //T 同理
             boolean flag = str.matches("A*PA+TA*");
             //获取P的地址
             int p = str.indexOf("P");
@@ -25,8 +29,8 @@ public class PTA_1003 {
             int t = str.indexOf("T");
             //计算aPbTc中A的数量
             int c1 = p;
-            int c2 = t-p-1;
-            int c3 = str.length()-c2-c1-2;
+            int c2 = t - p - 1;
+            int c3 = str.length() - c2 - c1 - 2;
             //如果满足条件输出YES反之NO
             System.out.println(flag && (c1 * c2 == c3) ? "YES" : "NO");
         }
