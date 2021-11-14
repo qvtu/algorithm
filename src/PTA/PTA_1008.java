@@ -15,22 +15,17 @@ public class PTA_1008 {
         //输入数组长度 和 位移距离
         int n = in.nextInt();
         int m = in.nextInt();
-        //将数字数字用字符串存储
-        StringBuffer str = new StringBuffer();
+        //数组A
+        int[] A = new int[n];
         for (int i = 0; i < n; i++) {
-            int temp = in.nextInt();
-            str.append(temp + " ");
+            A[i] = in.nextInt();
         }
-        //StringBuffer 转 String
-        String str2 = str.toString();
-        //分割str
-        String[] str3 = str2.split(" ");
         //有可能位移距离大于数组长度所以取余
         m %= n;
         //从n-m开始输出
         for (int i = n - m; i < 2 * n - m - 1; i++) {
-            System.out.print(str3[(i % n)] + " ");
+            System.out.print(A[(i % n)] + " ");
         }
-        System.out.print(str3[((2 * n - m - 1) % n)]);
+        System.out.print(A[((2 * n - m - 1) % n)]);
     }
 }
