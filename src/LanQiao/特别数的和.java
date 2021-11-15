@@ -1,4 +1,4 @@
-package LangQiao;
+package LanQiao;
 
 /**
  * Copyright (C), 2019-2021, Kkoo

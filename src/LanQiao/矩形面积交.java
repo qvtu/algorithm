@@ -1,4 +1,4 @@
-package LangQiao;
+package LanQiao;
 
 import java.io.BufferedInputStream;
 import java.util.Scanner;
