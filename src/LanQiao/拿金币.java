@@ -15,30 +15,28 @@ public class 拿金币 {
         //输入n
         int n = in.nextInt();
         //定义N x N的方格
-        int[][] box = new int[n][n];
-        for (int i = 0; i < box.length; i++) {
-            for (int j = 0; j < box[0].length; j++) {
-                box[i][j] = in.nextInt();
-            }
-        }
         int[][] dp = new int[n][n];
         for (int i = 0; i < dp.length; i++) {
             for (int j = 0; j < dp[0].length; j++) {
+                dp[i][j] = in.nextInt();
+            }
+        }
+        for (int i = 0; i < dp.length; i++) {
+            for (int j = 0; j < dp[0].length; j++) {
                 if (i == 0 && j == 0) {
-                    dp[i][j] = box[0][0];
-                } else if(i==0){
-                    dp[i][j] =dp[i][j-1]+box[i][j];
-                }else if(j==0){
-                    dp[i][j]=dp[i-1][j]+box[i][j];
-                }else {
-                    int max = dp[i-1][j];
-                    if (dp[i][j-1]>dp[i-1][j]){
-                        max=dp[i][j-1];
+                } else if (i == 0) {
+                    dp[i][j] += dp[i][j - 1];
+                } else if (j == 0) {
+                    dp[i][j] += dp[i - 1][j];
+                } else {
+                    int max = dp[i - 1][j];
+                    if (dp[i][j - 1] > dp[i - 1][j]) {
+                        max = dp[i][j - 1];
                     }
-                    dp[i][j]=max+box[i][j];
+                    dp[i][j] += max;
                 }
             }
         }
-        System.out.println(dp[n-1][n-1]);
+        System.out.println(dp[n - 1][n - 1]);
     }
 }
