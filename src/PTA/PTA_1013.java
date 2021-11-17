@@ -12,10 +12,13 @@ import java.util.Scanner;
 public class PTA_1013 {
     public static void main(String[] args) {
         Scanner in = new Scanner(new BufferedInputStream(System.in));
+        //输入M N
         int m = in.nextInt();
         int n = in.nextInt();
-        int i = 2;
+        //count记录素数个数
         int count = 0;
+        //下面开始判断素数
+        int i = 2;
         while (count < n) {
             int flag = 1;
             if (i % 2 == 0 && i != 2) {
@@ -28,8 +31,11 @@ public class PTA_1013 {
                     }
                 }
             }
+            //flag=1说明i是素数
             if (flag == 1) {
+                //如果count>m-2说明可以开始输出了
                 if (count > m - 2) {
+                    //如果count是最后一个数不加空格 每十个素数换行
                     if (count == n - 1) {
                         System.out.print(i);
                     } else if ((count - m + 2) % 10 > 0) {
