@@ -29,7 +29,6 @@ public class 成绩分析 {
         }
         System.out.println(max);
         System.out.println(min);
-        System.out.printf("%.2f",sum / n);
-
+        System.out.printf("%.2f", sum / n);
     }
 }
