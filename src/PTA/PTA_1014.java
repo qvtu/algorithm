@@ -72,7 +72,6 @@ public class PTA_1014 {
             if (t1[i] == t2[i] && ((t1[i] >= 'A' && t1[i] <= 'N') || (t1[i] >= '0' && t1[i] <= '9')) && flag == 1) {
                 hh = t1[i];
                 flag = 2;
-
             }
             //判断day的下标
             if (t1[i] == t2[i] && t1[i] >= 'A' && t1[i] <= 'G' && flag == 0) {
