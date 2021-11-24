@@ -10,30 +10,30 @@ import java.util.Arrays;
  */
 public class 快速排序_升序 {
     public static void main(String[] args) {
-        int [] arr = {324,23,4,234,2,35234,54,2314,12,3,123,12,4,32,54,235,34,5,234,231};
-        sx(arr,0,arr.length-1);
+        int[] arr = {324, 23, 4, 234, 2, 35234, 54, 2314, 12, 3, 123, 12, 4, 32, 54, 235, 34, 5, 234, 231};
+        sx(arr, 0, arr.length - 1);
         System.out.println(Arrays.toString(arr));
     }
+
     public static void sx(int[] arr, int low, int high) {
+        int t;
         int i = low;
         int j = high;
-        int temp = arr[i];
+        int temp = arr[low];
         while (i < j) {
             while (i < j && temp <= arr[j]) {
                 j--;
-            }
-            if (i < j) {
-                arr[i] = arr[j];
-                i++;
             }
             while (i < j && temp >= arr[i]) {
                 i++;
             }
             if (i < j) {
+                t = arr[j];
                 arr[j] = arr[i];
-                j--;
+                arr[i] = t;
             }
         }
+        arr[low]=arr[i];
         arr[i] = temp;
         if (low < i) {
             sx(arr, low, i - 1);
