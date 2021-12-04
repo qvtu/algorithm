@@ -1,9 +1,6 @@
 package PTA;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.*;
 
 /**
  * Copyright (C), 2019-2021, Kkoo
@@ -13,17 +10,26 @@ import java.io.PrintWriter;
  */
 public class PTA_1018 {
     public static void main(String[] args) throws IOException {
-        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        //BufferedReader bf=new BufferedReader(new InputStreamReader(System.in));
+        //过不了最后一个点
+        //参考了其他人用了
+        // StreamTokenizer in = new StreamTokenizer(new BufferedReader(new InputStreamReader(System.in)));
+        //才过了最后一个点
+        StreamTokenizer in = new StreamTokenizer(new BufferedReader(new InputStreamReader(System.in)));
         PrintWriter out = new PrintWriter(System.out);
         //输入n
-        int n = Integer.parseInt(bf.readLine());
+        in.nextToken();
+        int n = (int)in.nval;
+        //用wa wb 保存每一个手势的获胜次数 pj 保存平局次数
         int wa[] = new int[3];
         int wb[] = new int[3];
         int pj = 0;
+        //判断谁获胜并且存储获胜手势
         for (int i = 0; i < n; i++) {
-            String[] s = bf.readLine().split(" ");
-            String a = s[0];
-            String b = s[1];
+            in.nextToken();
+            String a = in.sval;
+            in.nextToken();
+            String b = in.sval;
             if (a.equals(b)) {
                 pj += 1;
             } else if (a.equals("C")) {
@@ -50,6 +56,7 @@ public class PTA_1018 {
         int winb = n - wina - pj;
         out.println(wina + " " + pj + " " + winb);
         out.println(winb + " " + pj + " " + wina);
+        //我还以为概率要怎么算原来只要看哪一个手势获胜次数最多
         out.print(gl(wa[0], wa[1], wa[2]) + " " + gl(wb[0], wb[1], wb[2]));
         out.flush();
     }
