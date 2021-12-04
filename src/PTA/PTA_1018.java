@@ -10,8 +10,8 @@ import java.io.*;
  */
 public class PTA_1018 {
     public static void main(String[] args) throws IOException {
-        //BufferedReader bf=new BufferedReader(new InputStreamReader(System.in));
-        //过不了最后一个点
+        //用BufferedReader bf=new BufferedReader(new InputStreamReader(System.in));
+        //是过不了最后一个点的
         //参考了其他人用了
         // StreamTokenizer in = new StreamTokenizer(new BufferedReader(new InputStreamReader(System.in)));
         //才过了最后一个点
