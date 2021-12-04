@@ -1,8 +1,9 @@
 package PTA;
 
-import java.io.BufferedInputStream;
-import java.util.Arrays;
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 
 /**
  * Copyright (C), 2019-2021, Kkoo
@@ -11,41 +12,55 @@ import java.util.Scanner;
  * FileName: PTA_1018
  */
 public class PTA_1018 {
-    public static void main(String[] args) {
-        Scanner in = new Scanner(new BufferedInputStream(System.in));
+    public static void main(String[] args) throws IOException {
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        PrintWriter out = new PrintWriter(System.out);
         //输入n
-        int n = in.nextInt();
-        String[][] arr = new String[n][2];
-        String wina = "";
-        String winb = "";
-        String pj="";
-        for (int i = 0; i < arr.length; i++) {
-            String a = in.next();
-            String b = in.next();
+        int n = Integer.parseInt(bf.readLine());
+        int wa[] = new int[3];
+        int wb[] = new int[3];
+        int pj = 0;
+        for (int i = 0; i < n; i++) {
+            String[] s = bf.readLine().split(" ");
+            String a = s[0];
+            String b = s[1];
             if (a.equals(b)) {
-                pj += a;
+                pj += 1;
             } else if (a.equals("C")) {
                 if (b.equals("J")) {
-                    wina += a;
+                    wa[0]++;
                 } else {
-                    winb += b;
+                    wb[2]++;
                 }
             } else if (a.equals("J")) {
                 if (b.equals("C")) {
-                    winb += b;
+                    wb[0]++;
                 } else {
-                    wina += a;
+                    wa[1]++;
                 }
             } else if (a.equals("B")) {
                 if (b.equals("C")) {
-                    wina += a;
+                    wa[2]++;
                 } else {
-                    winb += b;
+                    wb[1]++;
                 }
             }
         }
-        System.out.println(wina.length()+" "+pj.length()+" "+winb.length());
-        System.out.println(winb.length()+" "+pj.length()+" "+wina.length());
+        int wina = wa[0] + wa[1] + wa[2];
+        int winb = n - wina - pj;
+        out.println(wina + " " + pj + " " + winb);
+        out.println(winb + " " + pj + " " + wina);
+        out.print(gl(wa[0], wa[1], wa[2]) + " " + gl(wb[0], wb[1], wb[2]));
+        out.flush();
+    }
 
+    public static char gl(int c, int j, int b) {
+        if (b >= c && b >= j) {
+            return 'B';
+        }
+        if (c > b && c >= j) {
+            return 'C';
+        }
+        return 'J';
     }
 }
