@@ -1,10 +1,6 @@
 package LanQiao;
 
 import java.io.BufferedInputStream;
-import java.sql.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
 import java.util.Scanner;
 
 /**
@@ -14,36 +10,43 @@ import java.util.Scanner;
  * FileName: 幂方分解
  */
 public class 幂方分解 {
+    public static String str = "";
+
     public static void main(String[] args) {
         Scanner in = new Scanner(new BufferedInputStream(System.in));
         //输入N
         int n = in.nextInt();
-        dg(n,0);
+        dg(n, 0, 0);
+        str = str.replace("+)", ")");
+        for (int i = 0;i<str.length()-1;i++){
+            System.out.print(str.charAt(i));
+        }
     }
 
-    public static void dg(int n, int i) {
-        if (n == 1) {
-            if (i>2){
-                dg(i,0);
-            }else {
-                System.out.println(i);
-            }
+    public static void dg(int n, int pow, int t) {
+        if (n == t) {
             return;
         }
-        if (n % 2 != 0) {
-            double t = Math.pow(2, i);
-            n = (int) (n * t - t);
-            if (i>2){
-                dg(i,0);
-            }else {
-                System.out.println(i);
-            }
-            i = 0;
-            dg(n, i);
-        } else {
-            i++;
-            n = n / 2;
-            dg(n, i);
+        while (t * 2 <= n) {
+            t = (int) Math.pow(2, pow);
+            pow++;
         }
+        pow -= 1;
+        if (pow >= 3) {
+            str += "2(";
+            dg(pow, 0, 0);
+        } else {
+            if (pow == 1) {
+                str += "2";
+            } else {
+                str += "2(" + pow;
+            }
+        }
+        if (pow == 1) {
+            str += "+";
+        } else {
+            str += ")+";
+        }
+        dg(n - t, 0, 0);
     }
 }
