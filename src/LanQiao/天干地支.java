@@ -17,15 +17,15 @@ public class 天干地支 {
         int year = in.nextInt();
         int i = 6;
         int j = 0;
-        int t = year - 2020;
-        if (year >= 2020) {
+        int t = (year - 2020) % 60;
+        if (t == 0) {
+        } else if (t > 0) {
             i = (i + t) % 10;
             j = (j + t) % 12;
         } else {
-            i = 9 - Math.abs(i + t) % 9;
-            j = 11 - Math.abs(j + t) % 11;
+            i = (i + 10 - Math.abs(t)) % 10;
+            j = (j + 12 - Math.abs(t)) % 12;
         }
         System.out.println(tg[i] + dz[j]);
-
     }
 }
