@@ -24,8 +24,6 @@ public class 答疑 {
         }
         int[] time = new int[n];
         s_a_e_sort(arr);
-        s_a_sort(arr);
-        e_sort(arr);
         long sum = 0L;
         for (int i = 0; i < n; i++) {
             if (i == 0) {
@@ -48,9 +46,6 @@ public class 答疑 {
                 }
             }
         }
-    }
-
-    public static void s_a_sort(int[][] arr) {
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr.length - i - 1; j++) {
                 if (arr[j][2] == arr[j + 1][2] && arr[j][0] > arr[j + 1][0]) {
@@ -60,9 +55,6 @@ public class 答疑 {
                 }
             }
         }
-    }
-
-    public static void e_sort(int[][] arr) {
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr.length - i - 1; j++) {
                 if (arr[j][0] == arr[j + 1][0] && arr[j][1] > arr[j + 1][1]) {
