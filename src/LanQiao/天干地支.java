@@ -23,8 +23,8 @@ public class 天干地支 {
             i = (i + t) % 10;
             j = (j + t) % 12;
         } else {
-            i = (i + 10 - Math.abs(t)) % 10;
-            j = (j + 12 - Math.abs(t)) % 12;
+            i = (i + 10 - Math.abs(t%10)) % 10;
+            j = (j + 12 - Math.abs(t%12)) % 12;
         }
         System.out.println(tg[i] + dz[j]);
     }
