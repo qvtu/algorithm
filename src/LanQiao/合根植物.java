@@ -49,10 +49,6 @@ public class 合根植物 {
     }
 
     public static void hb(int a, int b) {
-        a = find(arr[a]);
-        b = find(arr[b]);
-        if (a != b) {
-            arr[a] = b;
-        }
+        arr[find(a)] = find(b);
     }
 }
