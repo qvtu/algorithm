@@ -14,8 +14,11 @@ public class 时间显示 {
         Scanner in = new Scanner(new BufferedInputStream(System.in));
         long time = in.nextLong();
         long h, m, s;
+        //毫秒->秒
         time /= 1000;
+        //取模只留下时分秒
         time = time % (24 * 60 * 60);
+        //时分秒
         h = time / 60 / 60;
         m = time / 60 % 60;
         s = time % 60;
